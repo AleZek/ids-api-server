@@ -11,11 +11,8 @@ define('IMG_DIR', "img/mappa/");
 
 class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Controller {
 
-
-
     public function __construct()
     {
-
     }
 
     /**
@@ -27,7 +24,6 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
     public function getMappaImage($id) {
         $mappa = $this->getMappa($id);
         $img_file = null;
-
         if (!is_null($mappa))
             $img_file = $this->getImageFile($mappa->getImage());
 
@@ -42,19 +38,18 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
      *     name="write_map_image",
      *     path="/api/image/map/{id}",
      *     methods={"POST"})
+     *
+     * Nel corpo della Request voglio i dati dell'immagine in base64
      */
     public function createMappaImageFile($id) {
         $encoded_img = http_get_request_body();
         $data = base64_decode($encoded_img);
-        $fh = fopen($this->generateImgName($id), "w");
-        fwrite($fh, $data);
+        $filename = $this->generateImgName($id);
+        $fh = fopen($filename, "w");
+        if (fwrite($fh, $data))
+            $this->updateMappaImg($id, $filename);
+
     }
-
-
-
-
-
-    public function getFileImmagine(){}
 
     private function getMappa($id){
         $repository = $this->getDoctrine()
@@ -71,5 +66,15 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
 
         return $this->getMappa($id)->getName() . time() . ".jpg";
 
+    }
+
+    private function getEntityManager(){
+        return $this->getEntityManager();
+    }
+
+    private function updateMappaImg($id, $filename){
+        $mappa = $this->getMappa($id);
+        $mappa->setImage($filename);
+        $this->getEntityManager()->flush();
     }
 }
