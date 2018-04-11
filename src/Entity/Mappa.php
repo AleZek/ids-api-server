@@ -25,6 +25,12 @@ class Mappa
     private $name;
 
     /**
+     * @ORM\Column(type="text", length=100)
+     */
+    private $image;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="Beacon", mappedBy="mappa")
      * @ApiSubresource()
      */
@@ -39,6 +45,16 @@ class Mappa
     {
         return $this->name;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage() : ?string
+    {
+        return $this->image;
+    }
+
+
 
     public function setName(string $name): self
     {
@@ -62,6 +78,16 @@ class Mappa
     {
         $this->beacons = $beacons;
     }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
 
 
 }
