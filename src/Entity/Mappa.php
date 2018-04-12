@@ -25,7 +25,7 @@ class Mappa
     private $name;
 
     /**
-     * @ORM\Column(type="text", length=100)
+     * @ORM\Column(type="text", length=100, nullable=true)
      */
     private $image;
 

@@ -45,7 +45,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
         $encoded_img = http_get_request_body();
         $data = base64_decode($encoded_img);
         $filename = $this->generateImgName($id);
-        $fh = fopen($filename, "w");
+        $fh = fopen(IMG_DIR . $filename, "w");
         if (fwrite($fh, $data))
             $this->updateMappaImg($id, $filename);
 
@@ -53,8 +53,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
 
     private function getMappa($id){
         $repository = $this->getDoctrine()
-            ->getRepository(Mappa::class);
-
+                           ->getRepository(Mappa::class);
         return $repository->find($id);
     }
 
@@ -63,9 +62,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
     }
 
     private function generateImgName($id){
-
         return $this->getMappa($id)->getName() . time() . ".jpg";
-
     }
 
     private function getEntityManager(){
