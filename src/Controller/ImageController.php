@@ -28,7 +28,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
             $img_file = $this->getImageFile($mappa->getImage());
 
         if (!is_null($img_file))
-            return new Response(base64_encode($img_file), 200);
+            return new Response('{"img":"' . base64_encode($img_file) . '"}', 200);
         else
             return new Response($this->json(null), 200);
     }
