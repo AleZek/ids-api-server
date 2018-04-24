@@ -41,14 +41,15 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
      *
      * Nel corpo della Request voglio i dati dell'immagine in base64
      */
-    public function createMappaImageFile($id) {
-        $encoded_img = http_get_request_body();
+    public function createMappaImageFile(Request $request, $id) {
+        $encoded_img = $request->getContent();
+
         $data = base64_decode($encoded_img);
         $filename = $this->generateImgName($id);
         $fh = fopen(IMG_DIR . $filename, "w");
         if (fwrite($fh, $data))
             $this->updateMappaImg($id, $filename);
-
+        return new Response($this->json("File Creato!"), 200);
     }
 
     private function getMappa($id){
@@ -58,20 +59,20 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
     }
 
     private function getImageFile($path){
-        return file_get_contents($path);
+        if(!is_null($path))
+            return file_get_contents($path);
+        return null;
     }
 
     private function generateImgName($id){
         return $this->getMappa($id)->getName() . time() . ".jpg";
     }
 
-    private function getEntityManager(){
-        return $this->getEntityManager();
-    }
+
 
     private function updateMappaImg($id, $filename){
         $mappa = $this->getMappa($id);
         $mappa->setImage($filename);
-        $this->getEntityManager()->flush();
+        $this->getDoctrine()->getManager()->flush();
     }
 }
