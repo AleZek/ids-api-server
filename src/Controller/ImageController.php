@@ -42,9 +42,9 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
      * Nel corpo della Request voglio i dati dell'immagine in base64
      */
     public function createMappaImageFile(Request $request, $id) {
-        $encoded_img = $request->getContent();
-
-        $data = base64_decode($encoded_img);
+        $request_data = $request->getContent();
+        $json_data = json_decode($request_data);
+        $data = base64_decode($json_data->image);
         $filename = $this->generateImgName($id);
         $fh = fopen(IMG_DIR . $filename, "w");
         if (fwrite($fh, $data))
