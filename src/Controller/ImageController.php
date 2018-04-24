@@ -59,8 +59,9 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
     }
 
     private function getImageFile($path){
-        if(!is_null($path))
-            return file_get_contents($path);
+        $fullPath = 'img/mappa/' . $path;
+        if(!is_null($path) && file_exists($fullPath))
+            return file_get_contents($fullPath);
         return null;
     }
 
