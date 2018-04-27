@@ -49,7 +49,9 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
         $fh = fopen(IMG_DIR . $filename, "w");
         if (fwrite($fh, $data))
             $this->updateMappaImg($id, $filename);
-        return new Response("{\"msg\":\"File Creato!\"}", 200);
+        $response_array = array("msg" => "File Creato!",
+                                "nome_file" => $filename);
+        return new Response(json_encode($response_array), 200);
     }
 
     private function getMappa($id){
