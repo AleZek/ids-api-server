@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62ff2d59-af97-4b0e-a12f-43b0765f3931" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,8 +66,8 @@
       <file leaf-file-name="ImageController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="52" selection-end-column="58" />
+            <state relative-caret-position="520">
+              <caret line="72" column="21" lean-forward="false" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
               </folding>
@@ -234,12 +233,12 @@
       <workItem from="1523543303660" duration="638000" />
       <workItem from="1523898827565" duration="1348000" />
       <workItem from="1524564138418" duration="6488000" />
-      <workItem from="1524820048424" duration="344000" />
+      <workItem from="1524820048424" duration="1665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27959000" />
+    <option name="totallyTimeSpent" value="29280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1857" height="1092" extended-state="6" />
@@ -667,8 +666,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ImageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="52" selection-end-column="58" />
+        <state relative-caret-position="520">
+          <caret line="72" column="21" lean-forward="false" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
           </folding>
