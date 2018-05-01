@@ -42,7 +42,7 @@ class Beacon
     private $yfine;
 
     /**
-     * @ORM\OneToOne(targetEntity="Mappa", inversedBy="beacons")
+     * @ORM\ManyToOne(targetEntity="Mappa", inversedBy="beacons")
      * @ApiSubresource()
      */
     private $mappa;
