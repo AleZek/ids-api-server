@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Beacon;
 use App\Entity\Mappa;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,6 +56,35 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
                                 "id"    => $id,
                                 "name"  => $this->getMappa($id)->getName());
         return new Response(json_encode($response_array), 200);
+    }
+
+    /**
+     * @Route(
+     *     name="delete_beacons_by_map",
+     *     path="/api/mappas/{id}/beacons",
+     *     methods={"DELETE"})
+     *
+     *
+     */
+    public function deleteBeaconsByMappa($id) {
+
+        $mappa = $this->getMappa($id);
+        foreach ($mappa->getBeacons() as $beacon){
+            $this->deleteBeacon($beacon);
+        }
+
+        return new Response('{"msg":"beacon eliminati"}', 204);
+    }
+
+    public function deleteBeacon(Beacon $beacon)
+    {
+        if (!$beacon) {
+            throw $this->createNotFoundException('Beacon non trovato');
+        }
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($beacon);
+        $em->flush();
     }
 
     private function getMappa($id){
