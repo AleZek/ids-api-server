@@ -6,7 +6,7 @@ use App\Entity\Beacon;
 use App\Entity\Mappa;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Flex\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class MappaController extends Controller
 {
@@ -22,7 +22,7 @@ class MappaController extends Controller
     public function delete($id){
         $this->deleteBeaconsByMappa($id);
         $mappa = $this->getMappa($id);
-        if ($mappa->getImage() != "null")
+        if (!is_null($mappa->getImage()))
             $this->deleteImgFile($mappa->getImage());
         $this->deleteMappa($mappa);
 

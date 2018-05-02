@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62ff2d59-af97-4b0e-a12f-43b0765f3931" name="Default" comment="" />
+    <list default="true" id="62ff2d59-af97-4b0e-a12f-43b0765f3931" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MappaController.php" afterPath="$PROJECT_DIR$/src/Controller/MappaController.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MappaController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MappaController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/MappaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="27" column="63" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
+            <state relative-caret-position="178">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#34#56#0#PHP" expanded="true" />
               </folding>
@@ -72,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeaconRepository.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BeaconRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/BeaconRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding>
                 <element signature="e#34#56#0#PHP" expanded="true" />
               </folding>
@@ -109,6 +111,7 @@
       <find>file</find>
       <find>flush</find>
       <find>beacon</find>
+      <find>deleteimg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,8 +127,8 @@
         <option value="$PROJECT_DIR$/src/Entity/Beacon.php" />
         <option value="$PROJECT_DIR$/src/Controller/ImageController.php" />
         <option value="$PROJECT_DIR$/src/Controller/BeaconController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/MappaController.php" />
         <option value="$PROJECT_DIR$/src/Repository/BeaconRepository.php" />
+        <option value="$PROJECT_DIR$/src/Controller/MappaController.php" />
       </list>
     </option>
   </component>
@@ -268,12 +271,12 @@
       <workItem from="1524564138418" duration="6488000" />
       <workItem from="1524820048424" duration="4851000" />
       <workItem from="1525180144327" duration="4281000" />
-      <workItem from="1525267713377" duration="4937000" />
+      <workItem from="1525267713377" duration="5389000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41684000" />
+    <option name="totallyTimeSpent" value="42136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -657,20 +660,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MappaController.php">
+    <entry file="file://$PROJECT_DIR$/src/Repository/BeaconRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="63" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
+        <state relative-caret-position="396">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/BeaconRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/MappaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="178">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
           </folding>
