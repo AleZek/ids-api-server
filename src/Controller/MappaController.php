@@ -22,7 +22,8 @@ class MappaController extends Controller
     public function delete($id){
         $this->deleteBeaconsByMappa($id);
         $mappa = $this->getMappa($id);
-        $this->deleteImgFile($mappa->getImage());
+        if ($mappa->getImage() != "null")
+            $this->deleteImgFile($mappa->getImage());
         $this->deleteMappa($mappa);
 
         return new Response('{"msg":"Mappa Eliminata!"}', 204);
