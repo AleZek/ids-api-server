@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Beacon;
+use App\Entity\Mappa;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
