@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Beacon;
 use App\Entity\Mappa;
+use App\Utils\FileHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,7 +50,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
         $filename = $this->generateImgName($id);
         $fh = fopen(IMG_DIR . $filename, "w");
         if (fwrite($fh, $data))
-            $this->updateMappaImg($id, $filename);
+            $this->updateMappaImgPath($id, $filename);
 
         $response_array = array("msg"   => "File Creato!",
                                 "image" => $filename,
@@ -74,6 +75,31 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
         }
 
         return new Response('{"msg":"beacon eliminati"}', 204);
+    }
+
+    /**
+     * @Route(
+     *     name="update_map_image",
+     *     path="/api/image/map/{id}",
+     *     methods={"UPDATE"})
+     *
+     * Nel corpo della Request voglio i dati dell'immagine in base64
+     */
+    public function updateMappaImage(Request $request, $id) {
+        $request_data = $request->getContent();
+        $json_data = json_decode($request_data);
+        $data = base64_decode($json_data->image);
+        $filename = $this->generateImgName($id);
+        $fh = fopen(IMG_DIR . $filename, "w");
+        if (fwrite($fh, $data))
+            $this->deleteMappaImg($id);
+            $this->updateMappaImgPath($id, $filename);
+
+        $response_array = array("msg"   => "File Creato!",
+            "image" => $filename,
+            "id"    => $id,
+            "name"  => $this->getMappa($id)->getName());
+        return new Response(json_encode($response_array), 200);
     }
 
     public function deleteBeacon(Beacon $beacon)
@@ -106,9 +132,15 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
 
 
 
-    private function updateMappaImg($id, $filename){
+    private function updateMappaImgPath($id, $filename){
         $mappa = $this->getMappa($id);
         $mappa->setImage($filename);
         $this->getDoctrine()->getManager()->flush();
+    }
+
+    private function deleteMappaImg($id){
+        $mappa = $this->getMappa($id);
+        $file = $mappa->getImage();
+        $fh = new FileHelper('img/mappa/' . $file);
     }
 }
