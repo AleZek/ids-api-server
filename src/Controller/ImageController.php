@@ -81,7 +81,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
      * @Route(
      *     name="update_map_image",
      *     path="/api/image/map/{id}",
-     *     methods={"UPDATE"})
+     *     methods={"PUT"})
      *
      * Nel corpo della Request voglio i dati dell'immagine in base64
      */
