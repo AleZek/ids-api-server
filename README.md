@@ -20,7 +20,7 @@ La lista completa è la seguente:
   retrieve_map_image                          GET      ANY      ANY    /api/image/map/{id}                                 
   write_map_image                             POST     ANY      ANY    /api/image/map/{id}                                 
   delete_beacons_by_map                       DELETE   ANY      ANY    /api/mappas/{id}/beacons                            
-  update_map_image                            UPDATE   ANY      ANY    /api/image/map/{id}                                 
+  update_map_image                            PUT      ANY      ANY    /api/image/map/{id}                                 
   delete_dati_mappa                           DELETE   ANY      ANY    /api/custom/mappas/{id}                             
   api_entrypoint                              ANY      ANY      ANY    /api/{index}.{_format}                              
   api_doc                                     ANY      ANY      ANY    /api/docs.{_format}                                 
