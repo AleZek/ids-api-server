@@ -83,6 +83,14 @@ class Beacon
     /**
      * @return mixed
      */
+    public function getFloor()
+    {
+        return $this->floor;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getMappa()
     {
         return $this->mappa;
@@ -91,9 +99,9 @@ class Beacon
     /**
      * @return mixed
      */
-    public function getFloor()
+    public function getWidth()
     {
-        return $this->floor;
+        return $this->width;
     }
 
     /**
@@ -113,14 +121,6 @@ class Beacon
     }
 
     /**
-     * @param mixed $xfine
-     */
-    public function setXfine($xfine)
-    {
-        $this->xfine = $xfine;
-    }
-
-    /**
      * @param mixed $y
      */
     public function setY($y)
@@ -129,11 +129,11 @@ class Beacon
     }
 
     /**
-     * @param mixed $yfine
+     * @param mixed $floor
      */
-    public function setYfine($yfine)
+    public function setFloor($floor)
     {
-        $this->yfine = $yfine;
+        $this->floor = $floor;
     }
 
     /**
@@ -145,11 +145,11 @@ class Beacon
     }
 
     /**
-     * @param mixed $floor
+     * @param mixed $width
      */
-    public function setFloor($floor)
+    public function setWidth($width)
     {
-        $this->floor = $floor;
+        $this->width = $width;
     }
 
 
