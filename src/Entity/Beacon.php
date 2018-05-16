@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="App\Repository\BeaconRepository")
  * @ApiResource()
  */
+
 class Beacon
 {
     /**
@@ -41,6 +42,11 @@ class Beacon
      * @ApiSubresource()
      */
     private $mappa;
+    /**
+     * @ORM\Column(type="float", nullable=false)
+     *
+     */
+    private $width;
 
     /**
      * @return mixed
