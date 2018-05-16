@@ -22,7 +22,7 @@ api_insert_image:
     defaults:
         _controller: App\Controller\ImageController:createMappaImageFile
         _api_resource_class: 'App\Entity\Mappa'
-        _api_collection_operation_name: 'write_map_image'
+        _api_collection_operation_name: 'post_map_image'
 api_update_image:
     path: '/api/image/map/{id}'
     methods:  ['PUT']

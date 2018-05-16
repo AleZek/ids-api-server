@@ -8,7 +8,19 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MappaRepository")
- * @ApiResource()
+ * @ApiResource(itemOperations={
+ *     "get",
+ *     "put",
+ *     "delete",
+ *     },
+ *     collectionOperations={
+ *     "post",
+ *     "get",
+ *     "update_img"={"route_name"="api_update_image"},
+ *     "delete_dati_mappa"={"route_name"="api_delete_map_data"},
+ *     "post_map_image"={"route_name"="api_insert_image"},
+ *     "retrieve_map_image"={"route_name"="api_get_image"},
+ *     })
  */
 class Mappa
 {

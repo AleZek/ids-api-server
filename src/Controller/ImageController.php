@@ -37,7 +37,7 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
 
     /**
      * @Route(
-     *     name="write_map_image",
+     *     name="post_map_image",
      *     path="/api/image/map/{id}",
      *     methods={"POST"})
      *
