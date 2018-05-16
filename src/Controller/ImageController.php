@@ -59,23 +59,6 @@ class ImageController extends \Symfony\Bundle\FrameworkBundle\Controller\Control
         return new Response(json_encode($response_array), 200);
     }
 
-    /**
-     * @Route(
-     *     name="delete_beacons_by_map",
-     *     path="/api/mappas/{id}/beacons",
-     *     methods={"DELETE"})
-     *
-     *
-     */
-    public function deleteBeaconsByMappa($id) {
-
-        $mappa = $this->getMappa($id);
-        foreach ($mappa->getBeacons() as $beacon){
-            $this->deleteBeacon($beacon);
-        }
-
-        return new Response('{"msg":"beacon eliminati"}', 204);
-    }
 
     /**
      * @Route(

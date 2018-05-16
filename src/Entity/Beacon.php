@@ -27,20 +27,15 @@ class Beacon
     /**
      * @ORM\Column(type="float",nullable=false,)
      */
-    private $xinizio;
+    private $x;
     /**
      * @ORM\Column(type="float",nullable=false)
      */
-    private $xfine;
+    private $y;
     /**
-     * @ORM\Column(type="float",nullable=false)
+     * @ORM\Column(type="integer",nullable=false)
      */
-    private $yinizio;
-    /**
-     * @ORM\Column(type="float",nullable=false)
-     */
-    private $yfine;
-
+    private $floor;
     /**
      * @ORM\ManyToOne(targetEntity="Mappa", inversedBy="beacons")
      * @ApiSubresource()
@@ -66,33 +61,17 @@ class Beacon
     /**
      * @return mixed
      */
-    public function getXinizio()
+    public function getX()
     {
-        return $this->xinizio;
+        return $this->x;
     }
 
     /**
      * @return mixed
      */
-    public function getXfine()
+    public function getY()
     {
-        return $this->xfine;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getYinizio()
-    {
-        return $this->yinizio;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getYfine()
-    {
-        return $this->yfine;
+        return $this->y;
     }
 
     /**
@@ -104,6 +83,14 @@ class Beacon
     }
 
     /**
+     * @return mixed
+     */
+    public function getFloor()
+    {
+        return $this->floor;
+    }
+
+    /**
      * @param mixed $name
      */
     public function setName($name)
@@ -112,11 +99,11 @@ class Beacon
     }
 
     /**
-     * @param mixed $xinizio
+     * @param mixed $x
      */
-    public function setXinizio($xinizio)
+    public function setX($x)
     {
-        $this->xinizio = $xinizio;
+        $this->x = $x;
     }
 
     /**
@@ -128,11 +115,11 @@ class Beacon
     }
 
     /**
-     * @param mixed $yinizio
+     * @param mixed $y
      */
-    public function setYinizio($yinizio)
+    public function setY($y)
     {
-        $this->yinizio = $yinizio;
+        $this->y = $y;
     }
 
     /**
@@ -149,6 +136,14 @@ class Beacon
     public function setMappa($mappa)
     {
         $this->mappa = $mappa;
+    }
+
+    /**
+     * @param mixed $floor
+     */
+    public function setFloor($floor)
+    {
+        $this->floor = $floor;
     }
 
 
