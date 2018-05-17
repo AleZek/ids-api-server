@@ -35,6 +35,7 @@ class ArcoRepository extends ServiceEntityRepository
 
         $entityManager = $this->getEntityManager();
         $entityManager->persist($arco);
+        $entityManager->flush();
 
         return array("id" => $arco->getId());
     }
