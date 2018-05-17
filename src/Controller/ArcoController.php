@@ -40,7 +40,7 @@ class ArcoController extends \Symfony\Bundle\FrameworkBundle\Controller\Controll
     private function getBeaconByName($name){
         $beacon_repo = $this->getDoctrine()->getRepository(Beacon::class);
 
-        return $beacon = $beacon_repo->findBy(array("name" => $name));
+        return $beacon = $beacon_repo->findBy(array("name" => $name))[0];
     }
 
     private function calculateDistance($begin, $end){
