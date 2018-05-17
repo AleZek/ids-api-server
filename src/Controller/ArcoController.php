@@ -21,7 +21,7 @@ class ArcoController extends \Symfony\Bundle\FrameworkBundle\Controller\Controll
      *     path="/api/server/arcos/",
      *     methods={"POST"})
      */
-    public function insertArco(Request $request, $id) {
+    public function insertArco(Request $request) {
         $repository = $this->getDoctrine()
                            ->getRepository(Arco::class);
         $request_data = $request->getContent();
