@@ -18,7 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     collectionOperations={
  *     "get",
  *     "post",
- *     "insert"={"route_name"="api_arco_insert"}
+ *
  *     }
  * )
  */
