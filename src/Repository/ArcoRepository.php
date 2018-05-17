@@ -23,8 +23,8 @@ class ArcoRepository extends ServiceEntityRepository
     {
 
         $arco = new Arco();
-        $arco->setBegin($json_data->begin);
-        $arco->setEnd($json_data->end);
+        $arco->setBegin("/api/beacons/" . $json_data->begin);
+        $arco->setEnd("/api/beacons/" . $json_data->end);
         $arco->setWidth($json_data->width);
         $arco->setLength($json_data->length);
         $arco->setLos($json_data->los);
