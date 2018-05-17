@@ -31,7 +31,7 @@ class ArcoRepository extends ServiceEntityRepository
         $arco->setV($json_data->v);
         $arco->setI($json_data->i);
         $arco->setC($json_data->c);
-        $arco->setStairs($json_data->floor);
+        $arco->setStairs($json_data->stairs);
 
         $entityManager = $this->getEntityManager();
         $entityManager->persist($arco);
