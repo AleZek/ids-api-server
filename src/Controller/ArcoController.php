@@ -37,8 +37,10 @@ class ArcoController extends \Symfony\Bundle\FrameworkBundle\Controller\Controll
         return $repository->find($id);
     }
 
-    private function parseBeaconId($iri){
-        return str_replace("/api/beacons/", "", $iri);
+    private function getBeaconByName($name){
+        $beacon_repo = $this->getDoctrine()->getRepository(Beacon::class);
+
+        return $beacon = $beacon_repo->findBy(array("name" => $name));
     }
 
     private function calculateDistance($begin, $end){
@@ -61,10 +63,8 @@ class ArcoController extends \Symfony\Bundle\FrameworkBundle\Controller\Controll
 
     private function acquireRequestData($request_data){
         $json_data = json_decode($request_data);
-        $beginId = $this->parseBeaconId($json_data->begin);
-        $endId = $this->parseBeaconId($json_data->end);
-        $begin = $this->getBeacon($beginId);
-        $end = $this->getBeacon($endId);
+        $begin = $this->getBeaconByName($json_data->begin);
+        $end = $this->getBeaconByName($json_data->end);
         $json_data->length = $this->calculateDistance($begin,$end);
         $json_data->width = $this->calculateWidth($begin,$end);
         return $json_data;
