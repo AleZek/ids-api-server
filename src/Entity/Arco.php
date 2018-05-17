@@ -10,17 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  *
  * @ORM\Entity(repositoryClass="App\Repository\ArcoRepository")
- * @ApiResource(itemOperations={
- *     "get",
- *     "put",
- *     "delete",
- *     },
- *     collectionOperations={
- *     "get",
- *     "post",
+ * @ApiResource()
  *
- *     }
- * )
  */
 class Arco
 {
