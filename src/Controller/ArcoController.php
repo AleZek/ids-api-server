@@ -65,6 +65,8 @@ class ArcoController extends \Symfony\Bundle\FrameworkBundle\Controller\Controll
         $json_data = json_decode($request_data);
         $begin = $this->getBeaconByName($json_data->begin);
         $end = $this->getBeaconByName($json_data->end);
+        $json_data->begin = $begin;
+        $json_data->end = $end;
         $json_data->length = $this->calculateDistance($begin,$end);
         $json_data->width = $this->calculateWidth($begin,$end);
         return $json_data;
