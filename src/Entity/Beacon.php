@@ -47,6 +47,11 @@ class Beacon
      *
      */
     private $width;
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     */
+    private $device;
 
     /**
      * @return mixed
@@ -105,6 +110,14 @@ class Beacon
     }
 
     /**
+     * @return mixed
+     */
+    public function getDevice()
+    {
+        return $this->device;
+    }
+
+    /**
      * @param mixed $name
      */
     public function setName($name)
@@ -151,6 +164,15 @@ class Beacon
     {
         $this->width = $width;
     }
+
+    /**
+     * @param mixed $device
+     */
+    public function setDevice($device)
+    {
+        $this->device = $device;
+    }
+
 
 
 }
