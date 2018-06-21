@@ -32,7 +32,7 @@ class SecurityController extends Controller
             $user->setNome($request_content->nome);
             $user->setCognome($request_content->cognome);
             $user->setEmail($request_content->email);
-            $user->setRole('ROLE_USER');
+            $user->setRoles('ROLE_USER');
             $password = $passwordEncoder->encodePassword($user, $request_content->password);
             $user->setPassword($password);
 
@@ -43,7 +43,9 @@ class SecurityController extends Controller
 
             //TODO Gestire utente già esistente etc
 
-            return new Response("Utente " . $user->getEmail() . "Creato.", 200);
+            return new Response(json_encode(array("email" => $user->getEmail() ,
+                                                  "nome" => $user->getNome() ,
+                                                  "cognome" => $user->getCognome())), 200);
         }
 
         return new Response("Bad Request", 400);

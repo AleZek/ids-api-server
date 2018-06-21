@@ -40,11 +40,6 @@ class User implements UserInterface
     private $position;
 
     /**
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $apiToken;
-
-    /**
      * @ORM\Column(type="string")
      */
     private $role;
