@@ -11,3 +11,7 @@
 ###< symfony/web-server-bundle ###
 
 .idea/*
+
+###> lexik/jwt-authentication-bundle ###
+/%CONFIG_DIR%/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
