@@ -46,8 +46,6 @@ class Beacon
     private $meter_y;
     /**
      * @ORM\Column(type="integer",nullable=false)
-    /**
-     * @ORM\Column(type="integer",nullable=false)
      */
     private $floor;
     /**
