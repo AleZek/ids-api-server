@@ -39,11 +39,11 @@ class Beacon
     /**
      * @ORM\Column(type="float",nullable=false,)
      */
-    private $meter_x;
+    private $meterx;
     /**
      * @ORM\Column(type="float",nullable=false)
      */
-    private $meter_y;
+    private $metery;
     /**
      * @ORM\Column(type="integer",nullable=false)
      */
@@ -139,17 +139,17 @@ class Beacon
     /**
      * @return mixed
      */
-    public function getMeterX()
+    public function getMeterx()
     {
-        return $this->meter_x;
+        return $this->meterx;
     }
 
     /**
      * @return mixed
      */
-    public function getMeterY()
+    public function getMetery()
     {
-        return $this->meter_y;
+        return $this->metery;
     }
 
     /**
@@ -161,19 +161,19 @@ class Beacon
     }
 
     /**
-     * @param mixed $meter_x
+     * @param mixed $meterx
      */
-    public function setMeterX($meter_x)
+    public function setMeterx($meterx)
     {
-        $this->meter_x = $meter_x;
+        $this->meterx = $meterx;
     }
 
     /**
-     * @param mixed $meter_y
+     * @param mixed $metery
      */
-    public function setMeterY($meter_y)
+    public function setMetery($metery)
     {
-        $this->meter_y = $meter_y;
+        $this->metery = $metery;
     }
 
 
