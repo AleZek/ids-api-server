@@ -56,9 +56,10 @@ class UserController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $positionRepo = $entityManager->getRepository(Position::class);
 
-        $position = $positionRepo->findBy(array("user" => $email ))[0];
+        $position = $positionRepo->findBy(array("user" => $email ));
         $oldPosition = 0;
-        if(!is_null($position)) {
+        if(count($position) > 0) {
+            $position = $position[0];
             $oldPosition = $position->getBeacon();
             $position->setBeacon($newPosition);
         } else{
