@@ -26,9 +26,9 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string", nullable="true")
+     * @ORM\Column(type="string")
      */
-    private $role;
+    private $role = 'ROLE_USER';
 
     /**
      * @ORM\Column(type="string")
