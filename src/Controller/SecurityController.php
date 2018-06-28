@@ -25,12 +25,8 @@ class SecurityController extends Controller
         // 3) Encode the password (you could also do this via Doctrine listener)
         $request_content = $request->getContent();
         $request_content = json_decode($request_content);
-        if (!is_null($request_content->nome) && !is_null($request_content->cognome) &&
-            !is_null($request_content->email) && !is_null($request_content->password) ) {
+        if (!is_null($request_content->email) && !is_null($request_content->password) ) {
             $user = new User();
-//        var_dump($request_content);die;
-            $user->setNome($request_content->nome);
-            $user->setCognome($request_content->cognome);
             $user->setEmail($request_content->email);
             $user->setRoles('ROLE_USER');
             $password = $passwordEncoder->encodePassword($user, $request_content->password);
@@ -43,9 +39,7 @@ class SecurityController extends Controller
 
             //TODO Gestire utente già esistente etc
 
-            return new Response(json_encode(array("email" => $user->getEmail() ,
-                                                  "nome" => $user->getNome() ,
-                                                  "cognome" => $user->getCognome())), 200);
+            return new Response(json_encode(array("email" => $user->getEmail())), 200);
         }
 
         return new Response("Bad Request", 400);

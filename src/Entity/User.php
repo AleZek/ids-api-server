@@ -26,23 +26,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string")
-     */
-    private $nome;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $cognome;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @ORM\ManyToOne(targetEntity="Beacon", inversedBy="id")
-     */
-    private $position;
-
-    /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable="true")
      */
     private $role;
 
@@ -64,42 +48,6 @@ class User implements UserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getNome(): ?string
-    {
-        return $this->nome;
-    }
-
-    public function setNome(string $nome): self
-    {
-        $this->nome = $nome;
-
-        return $this;
-    }
-
-    public function getCognome(): ?string
-    {
-        return $this->cognome;
-    }
-
-    public function setCognome(string $cognome): self
-    {
-        $this->cognome = $cognome;
-
-        return $this;
-    }
-
-    public function getPosition(): ?int
-    {
-        return $this->position;
-    }
-
-    public function setPosition(?int $position): self
-    {
-        $this->position = $position;
 
         return $this;
     }
