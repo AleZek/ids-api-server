@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Arco;
 use App\Entity\Position;
 use App\Entity\User;
+use App\Utils\EmergencyNotifier;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,7 +27,10 @@ class UserController extends Controller
         $request = json_decode($request->getContent());
         $user_email = $request->email;
         $newPosition = $request->position;
-
+        $rv = $request->rv;
+        if($rv > 5) {
+            EmergencyNotifier::sendNotification();
+        }
         $oldPosition = $this->updateUserPosition($user_email,$newPosition);
 
         $this->updateArchiLos($oldPosition, self::DECREASE);
