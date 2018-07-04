@@ -25,9 +25,11 @@ class UserController extends Controller
     {
         //TODO  Estrai username da token
         $request = json_decode($request->getContent());
-        $user_email = $request->email;
+        $user_email = $this->getUser()->getUsername();
         $newPosition = $request->position;
-        $rv = $request->rv;
+        $rv = 0;
+        if (isset($request->rv))
+            $rv = $request->rv;
         if($rv > 5) {
             EmergencyNotifier::sendNotification();
         }
