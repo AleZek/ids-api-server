@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% form_theme emergency 'forms/theme.html.twig' %}
+{% form_theme stop 'forms/theme.html.twig' %}
+{% block body %}
+    <div class="container center-div offset-4 pagination-centered">
+        <h1 class=" text-danger">Gestione Emergenze</h1>
+        {% if emergenza %} <span class="text-warning text-justify offset-1" style="padding-left: 4%">È in corso un'emergenza</span> {% endif %}
+        <br>
+        <br>
+        <div class="col-md-4 offset-1">
+            {{ form_start(emergency) }}
+            {{ form_widget(emergency) }}
+            {{ form_end(emergency) }}
+        </div>
+
+        <div class="col-md-4 offset-1">
+            {{ form_start(stop) }}
+            {{ form_widget(stop) }}
+            {{ form_end(stop) }}
+        </div>
+        <div class="col-md-4 offset-1">
+            {{ form_start(back) }}
+            {{ form_widget(back) }}
+            {{ form_end(back) }}
+        </div>
+    </div>
+
+{%  endblock %}

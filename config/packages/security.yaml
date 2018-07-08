@@ -13,7 +13,16 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        login:
+        admin_login:
+            anonymous: ~
+            form_login:
+                        login_path: login_admin
+                        check_path: login_admin
+                        default_target_path: admin_main
+            logout:
+                        path: /logout
+                        target: login_admin
+        api_login:
                         pattern:  ^/api/login
                         stateless: true
                         anonymous: true
@@ -43,8 +52,10 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/api/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login/admin, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/locate, roles: [ ROLE_USER ], methods: [POST] }
         - { path: ^/api/positions, roles: [ ROLE_ADMIN ], methods: [POST] }
-        - { path: ^/api, roles: [ ROLE_ADMIN ], methods: [POST, DELETE, PUT] }
+        - { path: ^/api, roles: [ ROLE_ADMIN ], methods: [GET, POST, DELETE, PUT] }
         - { path: ^/api, roles: [ ROLE_USER ], methods: [GET] }
+        - { path: ^/admin, roles: [ ROLE_ADMIN ] }

@@ -31,7 +31,7 @@ class UserController extends Controller
         if (isset($request->rv))
             $rv = $request->rv;
         if($rv > 5) {
-            EmergencyNotifier::sendNotification();
+            EmergencyNotifier::startEmergency();
         }
         $oldPosition = $this->updateUserPosition($user_email,$newPosition);
 

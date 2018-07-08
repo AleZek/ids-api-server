@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% form_theme form 'forms/theme.html.twig' %}
+
+{% block body %}
+    <div class="container center-div offset-4 pagination-centered">
+<h1 class=" text-danger">Upload archi e nodi</h1>
+        <div class="row">
+            {{ form_start(form) }}
+            {{ form_label(form.beacon) }}
+            {{ form_widget(form.beacon) }}
+            {{ form_label(form.archi) }}
+            {{ form_widget(form.archi) }}
+
+            {%  if uploaded == 1 %}<div class="text-success">Aggiornamento nodi avvenuto con successo!</div> {%  endif %}
+            <br>
+            {{ form_widget(form.save) }}
+
+            {{ form_end(form) }}
+        </div>
+        <br>
+        <div class="row">
+
+                    {{ form_start(back) }}
+                    {{ form_widget(back) }}
+                    {{ form_end(back) }}
+
+        </div>
+
+    </div>
+
+{%  endblock %}
