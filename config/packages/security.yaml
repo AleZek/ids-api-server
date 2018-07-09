@@ -59,6 +59,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/locate, roles: [ ROLE_USER ], methods: [POST] }
         - { path: ^/api/positions, roles: [ ROLE_ADMIN ], methods: [POST] }
-        - { path: ^/api, roles: [ ROLE_ADMIN ], methods: [GET, POST, DELETE, PUT] }
         - { path: ^/api, roles: [ ROLE_USER ], methods: [GET] }
+        - { path: ^/api, roles: [ ROLE_ADMIN ], methods: [GET, POST, DELETE, PUT] }
         - { path: ^/admin, roles: [ ROLE_ADMIN ] }
