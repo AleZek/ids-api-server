@@ -170,9 +170,9 @@ class AdminController extends Controller
         $edge->setBegin($begin);
         $edge->setEnd($end);
         $edge->setStairs((int) $data[2]);
-        if(array_key_exists(3, $data) && array_key_exists(4, $data)) {
-            $edge->setLength($data[4]);
-            $edge->setWidth($data[3]);
+        if($data[3] != "" && $data[4]!="") {
+            $edge->setLength((double) $data[4]);
+            $edge->setWidth((double) $data[3]);
         }else {
             $edge->setLength($this->calculateDistance($begin, $end));
             $edge->setWidth($this->calculateWidth($begin, $end));
@@ -205,10 +205,10 @@ class AdminController extends Controller
     }
 
     private function calculateDistance($begin, $end){
-        $beginx = $begin->getX();
-        $endx = $end->getX();
-        $beginy = $begin->getY();
-        $endy = $end->getY();
+        $beginx = $begin->getMeterx();
+        $endx = $end->getMeterX();
+        $beginy = $begin->getMetery();
+        $endy = $end->getMetery();
         $deltaX = $beginx - $endx;
         $deltaY = $beginy - $endy;
 
