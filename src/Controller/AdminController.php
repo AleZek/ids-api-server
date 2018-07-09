@@ -170,7 +170,7 @@ class AdminController extends Controller
         $edge->setBegin($begin);
         $edge->setEnd($end);
         $edge->setStairs((int) $data[2]);
-        if(array_key_exists(3, $data) && array_key_exists(3, $data)) {
+        if(array_key_exists(3, $data) && array_key_exists(4, $data)) {
             $edge->setLength(data[4]);
             $edge->setWidth(data[3]);
         }else {
