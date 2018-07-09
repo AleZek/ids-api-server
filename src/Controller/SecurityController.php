@@ -63,4 +63,13 @@ class SecurityController extends Controller
 
         return new Response("Bad Request", 400);
     }
+
+
+    /**
+     * @Route('/loaderio-b62e2cb17ee9b6facd03a33a6812e951.txt')
+     *
+     */
+    public function loader(){
+        return new Response('loaderio-b62e2cb17ee9b6facd03a33a6812e951', 200);
+    }
 }

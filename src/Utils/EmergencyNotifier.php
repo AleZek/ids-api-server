@@ -31,7 +31,7 @@ class EmergencyNotifier
     {
         $url = 'https://fcm.googleapis.com/fcm/send';
         $firebaseKey = 'AAAAHDILXXY:APA91bGRJB2RtBSG-sXSoYumCWzr5bqefN6co-WGC-0e5kq6RgfqLbNmvlZ4caMKs0Xb8akYliCJALF7zwxeQJA9UVdyrp6xhVh66npGxhSEiJAs_8xCzJVYtdg85Cv4pK9rzPsVR6zF';
-        $post_data = self::getJsonEmergencyData();
+        $post_data = self::getJsonStopData();
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, Array("Content-Type: application/json", "Authorization: key=" . $firebaseKey));
