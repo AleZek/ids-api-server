@@ -27,10 +27,11 @@ security:
 
         api:
                                     pattern:   ^/api
-                                    stateless: true
+                                    stateless: false
                                     guard:
                                         authenticators:
                                             - lexik_jwt_authentication.jwt_token_authenticator
+                                    context: logged_context
 
         admin_login:
             anonymous: ~
@@ -41,7 +42,8 @@ security:
             logout:
                         path: /logout
                         target: login_admin
-
+            context: logged_context
+            stateless: false
 
             # activate different ways to authenticate
 
@@ -59,7 +61,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/locate, roles: [ ROLE_USER ], methods: [POST] }
         - { path: ^/api/positions, roles: [ ROLE_ADMIN ], methods: [POST] }
-        - { path: ^/api, roles: [ ROLE_USER ], methods: [GET] }
-        - { path: /api, roles: [ ROLE_ADMIN ], methods: [GET] }
-        - { path: ^/api, roles: [ ROLE_ADMIN ], methods: [GET, POST, DELETE, PUT] }
+        - { path: ^/api, roles: [ ROLE_USER, ROLE_ADMIN ], methods: [GET] }
+        - { path: ^/api, roles: [ ROLE_ADMIN ], methods: [POST, DELETE, PUT] }
         - { path: ^/admin, roles: [ ROLE_ADMIN ] }
