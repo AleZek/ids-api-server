@@ -215,7 +215,11 @@ class Arco
 
     public function decreaseLos(){
         $count = $this->los * ($this->width * $this->length);
-        $this->los = ($count - 1) / ($this->width * $this->length);
+        if ($count-1 < 0)
+            $count = 0;
+        else
+            $count = $count -1;
+        $this->los = round($count / ($this->width * $this->length) , 15);
     }
 
     public function increaseLos(){

@@ -42,6 +42,21 @@ class UserController extends Controller
                                               "position" => $newPosition)), 200);
     }
 
+    /**
+     * @Route("/api/logout", name="logout_api")
+     */
+    public function logoutUser(Request $request)
+    {
+        $user_email = $this->getUser()->getUsername();
+        $position = $this->getDoctrine()->getRepository(Position::class)->findOneBy(array('user'=>$user_email));
+        $beacon = $position->getBeacon();
+        $this->updateArchiLos($beacon, self::DECREASE);
+
+
+        return new Response(json_encode(array("email" => $user_email,
+           ), 200));
+    }
+
     private function updateArchiLos($position, $mode)
     {
         $entityManager = $this->getDoctrine()->getManager();

@@ -31,6 +31,17 @@ class PositionRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function deleteByUser($user){
+        return $this->createQueryBuilder('p')
+
+            ->delete()
+            ->where('user = :user')
+            ->setParameter('user', $user)
+
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Position[] Returns an array of Position objects
 //     */
