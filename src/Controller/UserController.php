@@ -49,8 +49,10 @@ class UserController extends Controller
     {
         $user_email = $this->getUser()->getUsername();
         $position = $this->getDoctrine()->getRepository(Position::class)->findOneBy(array('user'=>$user_email));
-        $beacon = $position->getBeacon();
-        $this->updateArchiLos($beacon, self::DECREASE);
+        if(!is_null($position)) {
+            $beacon = $position->getBeacon();
+            $this->updateArchiLos($beacon, self::DECREASE);
+        }
 
 
         return new Response(json_encode(array("email" => $user_email,
