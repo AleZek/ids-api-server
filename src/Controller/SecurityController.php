@@ -44,23 +44,26 @@ class SecurityController extends Controller
         // 3) Encode the password (you could also do this via Doctrine listener)
         $request_content = $request->getContent();
         $request_content = json_decode($request_content);
+        $em = $this->getDoctrine()->getRepository(User::class);
         if (!is_null($request_content->email) && !is_null($request_content->password) ) {
-            $user = new User();
-            $user->setEmail($request_content->email);
-            $user->setRoles('ROLE_USER');
-            $password = $passwordEncoder->encodePassword($user, $request_content->password);
-            $user->setPassword($password);
+            if (!is_null($em->findOneBy(array("email" => $request_content->email)))) {
+                $user = new User();
+                $user->setEmail($request_content->email);
+                $user->setRoles('ROLE_USER');
+                $password = $passwordEncoder->encodePassword($user, $request_content->password);
+                $user->setPassword($password);
 
-            // 4) save the User!
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+                // 4) save the User!
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            //TODO Gestire utente già esistente etc
+                //TODO Gestire utente già esistente etc
 
-            return new Response(json_encode(array("email" => $user->getEmail())), 200);
-        }
-
-        return new Response("Bad Request", 400);
+                return new Response(json_encode(array("email" => $user->getEmail())), 200);
+            }else
+                return new Response(json_encode(array("error" => $request_content->email . ' già presente.', 409);
+        }else
+            return new Response("Bad Request", 400);
     }
 }
