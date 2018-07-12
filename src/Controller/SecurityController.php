@@ -62,7 +62,7 @@ class SecurityController extends Controller
 
                 return new Response(json_encode(array("email" => $user->getEmail())), 200);
             }else
-                return new Response(json_encode(array("error" => $request_content->email . ' già presente.', 409);
+                return new Response(json_encode(array("error" => $request_content->email . ' già presente.')), 409);
         }else
             return new Response("Bad Request", 400);
     }
