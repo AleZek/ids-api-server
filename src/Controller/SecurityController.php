@@ -45,8 +45,9 @@ class SecurityController extends Controller
         $request_content = $request->getContent();
         $request_content = json_decode($request_content);
         $em = $this->getDoctrine()->getRepository(User::class);
+
         if (!is_null($request_content->email) && !is_null($request_content->password) ) {
-            if (!is_null($em->findOneBy(array("email" => $request_content->email)))) {
+            if (is_null($em->findOneBy(array("email" => $request_content->email)))) {
                 $user = new User();
                 $user->setEmail($request_content->email);
                 $user->setRoles('ROLE_USER');
