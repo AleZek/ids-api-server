@@ -19,6 +19,27 @@ class BeaconRepository extends ServiceEntityRepository
         parent::__construct($registry, Beacon::class);
     }
 
+    public function deleteAll(){
+        $em = $this->getEntityManager();
+        $cmd = $em->getClassMetadata(Beacon::class);
+
+        $connection = $em->getConnection();
+        $connection->beginTransaction();
+
+        try {
+            $connection->query('SET FOREIGN_KEY_CHECKS=0');
+            $connection->query('DELETE FROM '.$cmd->getTableName());
+            // Beware of ALTER TABLE here--it's another DDL statement and will cause
+            // an implicit commit.
+            $connection->query('SET FOREIGN_KEY_CHECKS=1');
+            $connection->commit();
+        } catch (\Exception $e) {
+            $connection->rollback();
+        }
+
+        $em->flush();
+    }
+
 //    /**
 //     * @return Beacon[] Returns an array of Beacon objects
 //     */

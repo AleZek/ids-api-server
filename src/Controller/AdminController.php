@@ -17,6 +17,7 @@ class AdminController extends Controller
     private $csvDir = '../csv';
     private $mappaRepo;
     private $beaconRepo;
+    private $arcoRepo;
 
     /**
      * @Route("/admin/home", name="admin_main")
@@ -52,7 +53,7 @@ class AdminController extends Controller
     }
 
 
-        /**
+    /**
      * @Route("/admin/upload", name="admin_upload")
      */
     public function uploadCsv(Request $request)
@@ -82,6 +83,11 @@ class AdminController extends Controller
 
             $this->beaconRepo = $this->getDoctrine()->getRepository(Beacon::class);
             $this->mappaRepo = $this->getDoctrine()->getRepository(Mappa::class);
+            $this->arcoRepo = $this->getDoctrine()->getRepository(Arco::class);
+
+            $this->arcoRepo->deleteAll();
+            $this->beaconRepo->deleteAll();
+
             $this->importNodi();
             $this->importArchi();
 
