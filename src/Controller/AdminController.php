@@ -205,7 +205,7 @@ class AdminController extends Controller
         $node->setType($data[7]);
         $node->setMappa($this->mappaRepo->find($data[8]));
         if(array_key_exists(9, $data))
-            $node->setDevice(data[9]);
+            $node->setDevice($data[9]);
 
         return $node;
     }
